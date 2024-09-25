@@ -54,14 +54,15 @@ http.createServer(function (req, res) {
     else {
         const filePath = path.join(__dirname, 'assets', req.url);
         fs.readFile(filePath, (err, data) => {
-            if (err) {
-                res.writeHead(404, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ error: 'File not found' }));
-            } else {
-                const mimeType = mime.lookup(filePath) || 'application/octet-stream';
-                res.writeHead(200, { 'Content-Type': mimeType });
-                res.end(data);
-            }
+        if (err) {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'File not found' }));
+        } else {
+            const mimeType = mime.lookup(filePath) || 'application/octet-stream';
+            res.writeHead(200, { 'Content-Type': mimeType });
+            res.write(mimeType);
+            res.end();
+        }
         });
     }
 }).listen(8080);
