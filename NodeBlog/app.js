@@ -9,6 +9,7 @@ app.use(express.json());
 // Endpoint do migracji (tworzenie tabel w bazie)
 app.post('/migrate', async (req, res) => {
     try {
+        prisma.migrate;
         res.json({ message: 'Migracja zakończona. Tabele zostały utworzone.' });
     } catch (error) {
         console.error(error);
