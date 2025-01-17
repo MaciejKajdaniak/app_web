@@ -1,0 +1,16 @@
+.header {
+  background-color: darkseagreen;
+  padding: 1rem;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
