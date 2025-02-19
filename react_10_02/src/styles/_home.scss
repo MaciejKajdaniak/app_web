@@ -1,0 +1,18 @@
+.home {
+  text-align: center;
+  .home-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    .btn {
+      background-color: cadetblue;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: darkseagreen;
+    }
+  }
+}
