@@ -19,7 +19,7 @@ http.createServer(function (req, res) {
         res.end('<html><body><h1>To jest dokument HTML generowany wewnątrz kodu</h1></body></html>');
     } 
     else if (req.url === '/4') {
-        const filePath = path.join(__dirname, 'index.html');
+        const filePath = path.join(__dirname, '');
         fs.readFile(filePath, (err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });

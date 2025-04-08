@@ -1,18 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PostList from './strony/PostList';
-import PostDetail from './strony/PostDetail';
-import './styles/main.scss';
+import {
+    QueryClient,
+    QueryClientProvider,
+    useQuery,
+} from '@tanstack/react-query'
 
-const App: React.FC = () => {
+const queryClient = new QueryClient()
+
+export default function App() {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<PostList />} />
-                <Route path="/post/:id" element={<PostDetail />} />
-            </Routes>
-        </Router>
-    );
-};
+        "<QueryClientProvider client={queryClient}> <Example /> </QueryClientProvider>"
+    )
+}
 
-export default App;
+function Example() {
+    const { isPending, error, data } = useQuery({
+        queryKey: ['repoData'],
+        queryFn: () =>
+            fetch('https://api.github.com/repos/TanStack/query').then((res) =>
+                res.json(),
+            ),
+    })
+
+    if (isPending) return 'Loading...'
+
+    if (error) return 'An error has occurred: ' + error.message
+
+    return (
+        "<div> <h1>{data.name}</h1> <p>{data.description}</p> <strong>👀 {data.subscribers_count}</strong>{' '} <strong>✨ {data.stargazers_count}</strong>{' '} <strong>🍴 {data.forks_count}</strong> </div>"
+    )
+}
