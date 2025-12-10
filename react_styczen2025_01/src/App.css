@@ -1,0 +1,8 @@
+.main{
+  display: flex;
+  flex-wrap: wrap;
+}
+img{
+  margin: 5px;
+  border-radius: 5px;
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Wiedźmin: Ostatnie życzenie",
+    "author": "Andrzej Sapkowski",
+    "year": 1993
+  },
+  {
+    "id": 2,
+    "title": "fghj",
+    "author": "ff",
+    "year": "1000",
+    "isbn": "1000"
+  },
+  {
+    "id": 3,
+    "title": "Une clope",
+    "author": "vincetn",
+    "year": "2020",
+    "isbn": "2020"
+  },
+  {
+    "id": 4,
+    "title": "Une clope2",
+    "author": "vincetnsqad",
+    "year": "2022",
+    "isbn": "2022"
+  }
+]
